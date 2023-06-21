@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Result</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style5.css')}}">
+</head>
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul class="flash-messages">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+<body>
+    <h1>Add Result</h1>
+    <form method="POST" action="/add_result">
+        <div class="mb-3">
+        <label for="roll_no">Roll No:</label>
+        <input type="text" name="roll_no" id="roll_no" required><br><br>
+        </div>
+        <div class="mb-3">
+        <label for="semester">Semester:</label>
+        <input type="text" name="semester" id="semester" required><br><br>
+        </div>
+        <div class="mb-3">
+        <label for="subject_code">Subject Code:</label>
+        <input type="text" name="subject_code" id="subject_code" required><br><br>
+        </div>
+        <div class="mb-3">
+        <label for="subject_name">Subject Name:</label>
+        <input type="text" name="subject_name" id="subject_name" required><br><br>
+        </div>
+        <div class="mb-3">
+        <label for="marks">Marks:</label>
+        <input type="text" name="marks" id="marks" required><br><br>
+        </div>
+        <div class="mb-3">
+        <label for="marks">Grade:</label>
+        <input type="text" name="grade" id="grade" required><br><br>
+        </div>
+        <input type="submit" value="Add Result">
+    </form>
+</body>
+</html>

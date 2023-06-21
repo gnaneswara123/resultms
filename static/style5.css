@@ -1,0 +1,45 @@
+body {
+    padding: 20px;
+    background-image: url('https://img.freepik.com/free-vector/simple-blank-green-background-vector-business_53876-174906.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+h1 {
+    margin-top: 30px;
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+form {
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #424040;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}

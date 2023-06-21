@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Creative Item Page with Quantity</title>
+  <style>
+    /* CSS styling for the page */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f1f1f1;
+    }
+    
+    .item-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    .item-image {
+      width: 300px;
+      height: 300px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+    }
+    
+    .item-title {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .item-description {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    
+    .buy-now-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    
+    .quantity-label {
+      margin-right: 10px;
+      font-weight: bold;
+    }
+    
+    .quantity-input {
+      padding: 5px;
+      width: 50px;
+      text-align: center;
+    }
+    
+    .buy-now-button {
+      padding: 15px 30px;
+      font-size: 20px;
+      background-color: #ff5c5c;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    
+    .buy-now-button:hover {
+      background-color: #ff4444;
+    }
+  </style>
+</head>
+<body>
+  <div class="item-container">
+    <img class="item-image" src="https://d2xamzlzrdbdbn.cloudfront.net/products/4cf356e3-df01-49fb-800e-4dd06e0e68f423081117.jpg" alt="Item Image">
+    <h1 class="item-title">Asus ROG Phone 7 (12 GB RAM, 256 GB ROM, Storm White)</h1>
+    <p class="item-description">Asus ROG Phone 7 mobile was launched on 13th April 2023. The phone comes with a 165 Hz refresh rate 6.78-inch touchscreen display offering a resolution of 2448x1080 pixels (FHD+) at a pixel density of 395 pixels per inch (ppi). The display sports Gorilla Glass for protection. Asus ROG Phone 7 is powered by an octa-core Snapdragon 8 Gen 2 processor. It comes with 12GB of RAM. The Asus ROG Phone 7 runs Android 13 and is powered by a 6000mAh non-removable battery.</p>
+    <form method="post" action="{{url_for('pay',name='Asus ROG 7',price=49999)}}">
+    <div class="buy-now-container">
+      <label for="quantity" class="quantity-label">Quantity:</label>
+      <input type="number" id="quantity" name="qty" class="quantity-input" min="1" value="1">
+      <button class="buy-now-button">Buy Now</button>
+    </div>
+  </form>
+
+  </div>
+</body>
+</html>

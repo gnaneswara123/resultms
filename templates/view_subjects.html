@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Subjects</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style6.css')}}">
+</head>
+<body>
+    <h1>View Subjects</h1>
+    <table class="custom-table">
+        <thead>
+        <tr>
+            <th>Subject Code</th>
+            <th>Subject Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for subject in subjects %}
+        <tr>
+            <td>{{ subject[0] }}</td>
+            <td>{{ subject[1] }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

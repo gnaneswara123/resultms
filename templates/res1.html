@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Search Results</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style3.css')}}">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+       
+    </style>
+</head>
+<body>
+    <h1>Results</h1>
+        <table>
+            <thead>
+            <tr>
+                <th>Semester</th>
+                <th>Total Marks</th>
+                
+            </tr>
+            </thead>
+            </thead>
+            <tbody>
+            {% for result in results %}
+            <tr>
+                <td>{{ total_score[1] }}</td>
+                <td>{{ total_score[2] }}</td>
+                
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+       
+</body>
+</html>

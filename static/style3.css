@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: whitesmoke;
+}
+
+h1 {
+  margin-top: 50px;
+    text-align: center;
+    color: black;
+}
+
+table {
+    margin: auto;
+    border-collapse: collapse;
+    width: 60%;
+    margin-top: 10px;
+    background-color: whitesmoke;
+}
+
+th, td {
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    text-align: center;
+    background-color:green;
+    font-weight: bold;
+}
+
+tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+p {
+   margin-left: 300px;
+    margin-top: 20px;
+    font-weight: bold;
+}

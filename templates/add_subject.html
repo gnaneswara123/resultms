@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Subject</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style4.css')}}">
+</head>
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul class="flash-messages">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+<body>
+    <h1>Add Subject</h1>
+    <form method="POST" action="/add_subject">
+        <div class="mb-3">
+        <label for="subject_code">Subject Code:</label>
+        <input type="text" name="subject_code" id="subject_code" required><br><br>
+        </div>
+        <div class="mb-3">
+        <label for="subject_name">Subject Name:</label>
+        <input type="text" name="subject_name" id="subject_name" required><br><br>
+        </div>
+        <input type="submit" value="Add Subject">
+    </form>
+</body>
+</html>

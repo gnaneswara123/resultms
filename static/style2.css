@@ -1,0 +1,54 @@
+body {
+    background-image: url('https://img.freepik.com/free-photo/book-with-green-board-background_1150-3837.jpg?w=360');
+    background-attachment: fixed;
+    background-size: 1550px 800px;
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1 {
+    text-align: center;
+    padding-top: 70px;
+  }
+
+  form {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 500px;
+    max-width: 300px;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 25px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+  }
+
+  input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  input[type="submit"]:hover {
+
+    background-color: #45a049;
+  }
