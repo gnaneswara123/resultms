@@ -3,13 +3,22 @@ from key import secret_key,salt1,salt2
 from stoken import token
 from cmail import sendmail
 from flask_session import Session
+import os
 import mysql.connector
 from itsdangerous import URLSafeTimedSerializer
 app=Flask(__name__)
 app.secret_key=secret_key
 app.config['SESSION_TYPE']='filesystem'
 Session(app)
-mydb=mysql.connector.connect(host='localhost',user='root',password='gnani.123456',db='rmr')
+#mydb=mysql.connector.connect(host='localhost',user='root',password='gnani.123456',db='rmr')
+db= os.environ['RDS_DB_NAME']
+user= os.environ['RDS_USERNAME']
+password= os.environ['RDS_PASSWORD']
+host= os.environ['RDS_HOSTNAME']
+port= os.environ['RDS_PORT']
+with mysql.connector.connect(host=host,user=user,password=password,db=db) as conn:
+    cursor=conn.cursor(buffered=True)
+    cursor.execute
 @app.route('/')
 def homes():
     return render_template('index.html')
@@ -339,4 +348,5 @@ def logout():
         return redirect(url_for('login'))
     else:
         return redirect(url_for('login'))
-app.run(debug=True,use_reloader=True)
+if __name__=="__main__":
+    app.run()
