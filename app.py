@@ -19,8 +19,8 @@ port= os.environ['RDS_PORT']
 with mysql.connector.connect(host=host,user=user,password=password,db=db) as conn:
     cursor=conn.cursor(buffered=True)
     cursor.execute('create table if not exists users(username varchar(50) primary key,password varchar(50),email varchar(50),email_status enum("confirmed","not confirmed"))')
-    cursor.execute('create table if not exists students(roll_no int primay key,name varchar(50),semester int)')
-    cursor.execute('create table if not exists subjects(subject_code varchar(50) primary key,subject_name varchar(50)')
+    cursor.execute('create table if not exists students(roll_no int primary key,name varchar(50),semester int)')
+    cursor.execute('create table if not exists subjects(subject_code varchar(50) primary key,subject_name varchar(50))')
     cursor.execute('create table if not exists results(roll_no int,semester int,subject_name varchar(30),subject_code varchar(30),marks int,grade varchar(5))')
 mydb=mysql.connector.connect(host=host,user=user,password=password,db=db)
 @app.route('/')
