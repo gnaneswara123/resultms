@@ -3,7 +3,6 @@ from key import secret_key,salt1,salt2
 from stoken import token
 from cmail import sendmail
 from flask_session import Session
-import os
 import mysql.connector
 from itsdangerous import URLSafeTimedSerializer
 app=Flask(__name__)
@@ -11,18 +10,6 @@ app.secret_key=secret_key
 app.config['SESSION_TYPE']='filesystem'
 Session(app)
 #mydb=mysql.connector.connect(host='localhost',user='root',password='gnani.123456',db='rmr')
-db= os.environ['RDS_DB_NAME']
-user= os.environ['RDS_USERNAME']
-password= os.environ['RDS_PASSWORD']
-host= os.environ['RDS_HOSTNAME']
-port= os.environ['RDS_PORT']
-with mysql.connector.connect(host=host,user=user,password=password,db=db) as conn:
-    cursor=conn.cursor(buffered=True)
-    cursor.execute('create table if not exists users(username varchar(50) primary key,password varchar(50),email varchar(50),email_status enum("confirmed","not confirmed"))')
-    cursor.execute('create table if not exists students(roll_no int primary key,name varchar(50),semester int)')
-    cursor.execute('create table if not exists subjects(subject_code varchar(50) primary key,subject_name varchar(50))')
-    cursor.execute('create table if not exists results(roll_no int,semester int,subject_name varchar(30),subject_code varchar(30),marks int,grade varchar(5))')
-mydb=mysql.connector.connect(host=host,user=user,password=password,db=db)
 @app.route('/')
 def homes():
     return render_template('index.html')
@@ -44,7 +31,7 @@ def semester_results():
         semester = request.form.get('semester')
         cursor=mydb.cursor()
         query = "SELECT * FROM results WHERE roll_no = %s AND semester=%s"
-        values = (roll_no,semester)
+        values = (roll_no,semester)    
         cursor.execute(query, values)
         results= cursor.fetchall()
         total_marks=0
@@ -54,18 +41,7 @@ def semester_results():
         return render_template('res.html', results=results,total_marks = total_marks)
     return render_template('search.html')
 
-
-#@app.route('total_report',methods=['GET','POST'])
-# def total_report():
-    #if request.method=='POST':
-       # roll_no=request.form.get('roll_n')
-        #cursor=mydb.cursor()
-        #query="SELECT * FROM total_score WHERE roll_no = %s"
-        #values=(roll_no,)
-        #cursor.execute(query,values)
-        #total_marks=cursor.fetchall()
-        #return render_template('res1.html',total_marks=total_marks)
-    #return render_template('search1.html') -->
+ 
 @app.route('/log')
 def index():
     return render_template('title.html')
@@ -352,5 +328,4 @@ def logout():
         return redirect(url_for('login'))
     else:
         return redirect(url_for('login'))
-if __name__=="__main__":
-    app.run()
+app.run(debug=True,use_reloader=True)
