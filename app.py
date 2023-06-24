@@ -4,12 +4,25 @@ from stoken import token
 from cmail import sendmail
 from flask_session import Session
 import mysql.connector
+import os
 from itsdangerous import URLSafeTimedSerializer
 app=Flask(__name__)
 app.secret_key=secret_key
 app.config['SESSION_TYPE']='filesystem'
 Session(app)
 #mydb=mysql.connector.connect(host='localhost',user='root',password='gnani.123456',db='rmr')
+db=os.environ['RDS_DB_NAME']
+user=os.environ['RDS_USERNAME']
+password=os.environ['RDS_PASSWORD']
+host=os.environ['RDS_HOSTNAME']
+port=os.environ['RDS_PORT']
+with mysql.connector.connect(host=host,user=user,password=password,db=db) as conn:
+    cursor=conn.cursor(buffered=True)
+    cursor.execute('create table if not exists users(username varchar(50) primary key ,password varchar(50),email varchar(50),email_status enum("confirmed","not confirmed"))')
+    cursor.execute('create table if not exists students(roll_no int primary key,name varchar(50),semester int)')
+    cursor.execute('create table if not exists subjects(subject_code varchar(50) primary key,subject_name varchar(50)')
+    cursor.execute('create table if not exists results(roll_no int,subject_name varchar(30),subject_code varchar(30),marks int,grade varchar(5)')
+mydb=mysql.connector.connect(host=host,user=user,password=password,db=db)
 @app.route('/')
 def homes():
     return render_template('index.html')
