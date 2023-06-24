@@ -10,7 +10,6 @@ app=Flask(__name__)
 app.secret_key=secret_key
 app.config['SESSION_TYPE']='filesystem'
 Session(app)
-#mydb=mysql.connector.connect(host='localhost',user='root',password='gnani.123456',db='rmr')
 db=os.environ['RDS_DB_NAME']
 user=os.environ['RDS_USERNAME']
 password=os.environ['RDS_PASSWORD']
