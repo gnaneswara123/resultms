@@ -341,4 +341,5 @@ def logout():
         return redirect(url_for('login'))
     else:
         return redirect(url_for('login'))
-app.run(debug=True,use_reloader=True)
+if __name__='__main__':
+    app.run()
