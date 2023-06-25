@@ -4,7 +4,7 @@ from stoken import token
 from cmail import sendmail
 from flask_session import Session
 import mysql.connector
-import os
+
 from itsdangerous import URLSafeTimedSerializer
 app=Flask(__name__)
 app.secret_key=secret_key
@@ -340,6 +340,11 @@ def logout():
         return redirect(url_for('login'))
     else:
         return redirect(url_for('login'))
+<<<<<<< HEAD
 if __name__=='__main__':
     app.run()
 
+=======
+if __name__ == "__main__":
+    app.run()
+>>>>>>> 6aa1cd197dc52ec70b7ab45898559d4fc1ccf80b
