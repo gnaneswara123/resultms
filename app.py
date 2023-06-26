@@ -7,6 +7,7 @@ import mysql.connector
 import os
 from itsdangerous import URLSafeTimedSerializer
 app=Flask(__name__)
+#hello world
 app.secret_key=secret_key
 app.config['SESSION_TYPE']='filesystem'
 Session(app)
