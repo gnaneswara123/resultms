@@ -6,7 +6,7 @@ from flask_session import Session
 import mysql.connector
 import os
 from itsdangerous import URLSafeTimedSerializer
-app=Flask(_name_)
+app=Flask(__name__)
 app.secret_key=secret_key
 app.config['SESSION_TYPE']='filesystem'
 Session(app)
@@ -340,5 +340,5 @@ def logout():
         return redirect(url_for('login'))
     else:
         return redirect(url_for('login'))
-if _name_ == "_main_":
+if __name__ == "__main__":
     app.run()
