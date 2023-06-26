@@ -4,8 +4,9 @@ from stoken import token
 from cmail import sendmail
 from flask_session import Session
 import mysql.connector
-import os
 from itsdangerous import URLSafeTimedSerializer
+import os
+
 app=Flask(__name__)
 app.secret_key=secret_key
 app.config['SESSION_TYPE']='filesystem'
